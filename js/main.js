@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * Bootstrap v3.2.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -472,7 +472,7 @@ const STOLE = '602';
 const GIVEN = '603';
 const ACTIVE_FAILD = '604';
 const GIFT = '605';
-const SERVER_URL = 'http://127.0.0.1:3001/';
+const SERVER_URL = 'https://rotate-gifts.herokuapp.com/';
 var rotateType = '';
 
 $(function (){
