@@ -474,36 +474,38 @@ const ACTIVE_FAILD = '604';
 const GIFT = '605';
 const SERVER_URL = 'https://rotate-gifts.herokuapp.com/';
 var rotateType = '';
+var m_isRotate = false;
+
+var rotateFn = function (awards, angles, txt){
+	m_isRotate = !m_isRotate;
+	$('img.rotate').stopRotate();
+	$('img.rotate').rotate({
+		angle:0,
+		animateTo:angles+1800,
+		duration:8000,
+		callback:function (){
+			alert(txt);
+			m_isRotate = !m_isRotate;
+		}
+	});
+};
+var rotateFake = function (angles){
+	$('img.rotate').stopRotate();
+	$('img.rotate').rotate({
+		angle:0,
+		animateTo:angles+1800,
+		duration:8000,
+		callback:function (){
+		}
+	});
+};
 
 $(function (){
-	var m_isRotate = false;
+	
 	$('img').css('display', 'none');
 	$('body:not(body.login)').css('background', 'none');
 
-	var rotateFn = function (awards, angles, txt){
-		m_isRotate = !m_isRotate;
-		$('img.rotate').stopRotate();
-		$('img.rotate').rotate({
-			angle:0,
-			animateTo:angles+1800,
-			duration:8000,
-			callback:function (){
-				alert(txt);
-				m_isRotate = !m_isRotate;
-			}
-		});
-	};
-	var rotateFake = function (angles){
-		$('img.rotate').stopRotate();
-		$('img.rotate').rotate({
-			angle:0,
-			animateTo:angles+1800,
-			duration:8000,
-			callback:function (){
-			}
-		});
-	};
-
+	
 	$('.wheel > .button').mouseup(function (){
 		if(m_isRotate) return;
 		if($('.userdata > .chance').text().charAt(5) != '0') rotateFake(680);
