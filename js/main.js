@@ -506,7 +506,7 @@ $(function (){
 	$('body:not(body.login)').css('background', 'none');
 
 	
-	$('.wheel > .button').mouseup(function (){
+	$('.wheel > .button').click(function (){
 		if(m_isRotate) return;
 		if($('.userdata > .chance').text().charAt(5) != '0') rotateFake(680);
 		$.ajax({
