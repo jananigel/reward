@@ -1,0 +1,722 @@
+@media (max-width: 768px) {
+  body {
+    background: black;
+  }
+
+  .bg {
+    width: 60%;
+  }
+
+  .wingsRAni, .wingsLAni {
+    width: 50% !important;
+  }
+
+  .wheel {
+    width: 75%;
+  }
+  .wheel > img {
+    width: 75%;
+  }
+
+  .mask.result > .pic {
+    width: 75%;
+  }
+
+  .footer > .left {
+    width: 50%;
+  }
+  .footer > .left > img {
+    width: 45%;
+  }
+  .footer > .right {
+    width: 50%;
+  }
+  .footer > .right > img {
+    width: 45%;
+  }
+
+  .reward {
+    width: 90%;
+  }
+
+  .mask > input.mail {
+    width: 60%;
+  }
+
+  .mask.result > .pic {
+    width: 100%;
+  }
+  .mask.result > .pic > img {
+    width: 100%;
+  }
+
+  .mask > p.tip > img {
+    width: 25%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1299px) {
+  .wheel {
+    width: 50%;
+  }
+  .wheel > img {
+    width: 50%;
+  }
+
+  .mask.result > .pic {
+    width: 50%;
+  }
+
+  .footer > .left {
+    width: 40%;
+  }
+  .footer > .left > img {
+    width: 35%;
+  }
+  .footer > .right {
+    width: 40%;
+  }
+  .footer > .right > img {
+    width: 35%;
+  }
+
+  .reward {
+    width: 30%;
+  }
+
+  .mask > p.tip > img {
+    width: 10%;
+  }
+}
+@media (min-width: 1300px) {
+  .bg {
+    width: 50%;
+  }
+
+  .wingsRAni, .wingsLAni {
+    display: block;
+  }
+
+  .wheel {
+    width: 40%;
+  }
+  .wheel > img {
+    width: 40%;
+  }
+
+  .mask.result > .pic {
+    width: 40%;
+  }
+
+  .footer > .left {
+    width: 40%;
+  }
+  .footer > .left > img {
+    width: 35%;
+  }
+  .footer > .right {
+    width: 40%;
+  }
+  .footer > .right > img {
+    width: 35%;
+  }
+
+  .reward {
+    width: 30%;
+  }
+
+  .mask > p.tip > img {
+    width: 10%;
+  }
+  .mask > input.mail {
+    width: 30%;
+  }
+}
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.6);
+  outline: 0px solid red;
+  border-radius: 5px;
+}
+
+body {
+  font-family: "Microsoft JhengHei", "Arial";
+  background: url(../img/bg-22.jpg) center center no-repeat fixed;
+  background-size: cover;
+}
+
+a {
+  text-descoration: none;
+}
+
+::-moz-selection {
+  background: #05437A;
+  color: white;
+}
+
+::selection {
+  background: #05437A;
+  color: white;
+}
+
+* {
+  box-sizing: border;
+}
+
+.wheel {
+  margin: 0 auto;
+}
+.wheel img {
+  position: absolute;
+  top: -30em;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0, 0, 0.29, 1.46);
+}
+.wheel > img.wingsBG {
+  opacity: 0;
+  top: 0;
+  animation: appearWingsBG 1s 1 linear forwards 2.8s;
+}
+.wheel > img:not(img.wheelBG) {
+  pointer-events: none;
+}
+
+.reward {
+  margin: 0 auto;
+  background: #A58667;
+  border: 8px solid #C6A881;
+  padding: 1em;
+  border-radius: 10px;
+  display: none;
+}
+.reward > ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.reward > ul > li {
+  padding: 0.2em 0.4em;
+  font-size: 12pt;
+  color: white;
+  font-weight: bold;
+}
+
+body > .wheel > .wingsR, body > .wheel .wingsL {
+  transform: scale(0);
+  opacity: 0;
+}
+body > .wheel > .wingsL {
+  left: 20%;
+  transform: scale(0);
+}
+body > .wheel > .wingsR {
+  right: 5%;
+}
+
+h4, h6 {
+  color: white;
+}
+
+.footer {
+  pointer-events: none;
+  opacity: 0;
+  animation: appearWingsBG 2.5s 1 linear forwards 5.5s;
+}
+.footer > .left {
+  float: left;
+}
+.footer > .left > img {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.footer > .right {
+  float: right;
+}
+.footer > .right > img {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.master {
+  animation: masterFly 1s infinite linear;
+}
+
+.birdL {
+  animation: birdFlyL 1s infinite linear;
+}
+
+.birdR {
+  animation: birdFlyR 1s infinite linear;
+}
+
+.elfL {
+  animation: elfFlyL 1s infinite linear;
+}
+
+.elfR {
+  animation: elfFlyR 1s infinite linear;
+}
+
+.wingsLAni {
+  animation: scaleWingsL 2s 1 linear forwards 3.4s;
+}
+
+.wingsRAni {
+  animation: scaleWingsR 2s 1 linear forwards 3.4s;
+}
+
+.wingsLMove {
+  transform: scale(1) rotate(0deg);
+  left: 7%;
+  animation: wingsMoveDown 2s infinite linear;
+}
+
+.wingsRMove {
+  transform: scale(1) rotate(0deg);
+  right: 7%;
+  animation: wingsMoveDown 2s infinite linear;
+}
+
+.wheel > img.wingsBGMove {
+  opacity: 1;
+  animation: wingsMoveUp 2s infinite linear;
+}
+
+.reward {
+  color: white;
+}
+.reward .username {
+  font-size: 18pt;
+  font-weight: bold;
+  text-align: center;
+}
+.reward .userdata {
+  font-weight: bold;
+}
+.reward .userdata .chance {
+  display: inline-block;
+}
+.reward .userdata .isgoodGuy {
+  float: right;
+}
+
+.mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.58);
+  top: 0;
+  text-align: center;
+}
+.mask > p.tip {
+  color: white;
+  font-size: 18pt;
+  font-weight: bold;
+  position: relative;
+  top: 40%;
+}
+.mask > input.mail {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 40%;
+  font-size: 14pt;
+}
+.mask > .button {
+  position: relative;
+  bottom: -65%;
+}
+.mask > .button > button {
+  border: 0;
+  color: white;
+  font-size: 14pt;
+  font-weight: bold;
+  margin: 0 0.3em;
+  padding: 0.5em 1.5em;
+}
+.mask > .button > .confirm {
+  background: #53b7a0;
+}
+.mask > .button > .cancel {
+  background: #de6969;
+}
+.mask > .button > .confirm:hover {
+  font-size: 12pt;
+  background: #518e80;
+}
+.mask > .button > .cancel:hover {
+  font-size: 12pt;
+  background: #a75353;
+}
+
+.mask.result {
+  background: rgba(0, 0, 0, 0.78);
+}
+.mask.result > .pic {
+  margin: 0 auto;
+}
+.mask.result > .pic > img {
+  position: absolute;
+  display: block;
+}
+.mask.result > .pic > img:nth-child(2) {
+  animation: wingsMoveDown 1s infinite linear;
+}
+.mask.result > p {
+  color: white;
+  font-weight: bold;
+  font-size: 20pt;
+}
+
+.login {
+  background: black;
+  text-align: center;
+}
+.login > .account {
+  background: black;
+  padding: 4em 0;
+  position: absolute;
+  left: calc(50% - 50%);
+  top: calc(50% - 83px);
+  z-index: 99;
+  width: 100%;
+  opacity: 0;
+}
+.login > .account > p {
+  color: white;
+  font-weight: bold;
+}
+.login > .account > form > input.username {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+.login > .account > form > *::-webkit-input-placeholder {
+  color: white;
+}
+.login > .account > form > *:-moz-placeholder {
+  /* FF 4-18 */
+  color: white;
+}
+.login > .account > form > *::-moz-placeholder {
+  /* FF 19+ */
+  color: white;
+}
+.login > .account > form > *:-ms-input-placeholder {
+  /* IE 10+ */
+  color: white;
+}
+.login > .account > form > input[type='submit'] {
+  background: #F28830;
+  border: 0;
+  color: white;
+  padding: 0.15em 1em;
+}
+.login > .bg {
+  margin: 0.5em auto 0 auto;
+}
+.login > .bg > img {
+  width: 100%;
+  opacity: 0;
+  animation: loginBounce 2s linear 0s, loginRotate 180s infinite linear 2s;
+}
+
+.bgWhite {
+  animation: loginLightenBg 1s 1 linear forwards 1s;
+}
+
+.opacity-0 {
+  animation: loginScaleSmall 1s 1 linear forwards;
+  transform: scale(0);
+}
+
+.bgScale {
+  animation: loginScaleBg 1s 1 linear forwards 1s;
+}
+
+.fadeInAni {
+  animation: accountOpacity 2s 1 linear 2s forwards;
+}
+@keyframes loginBounce {
+  0% {
+    opacity: 0;
+    transform: scale(-1);
+  }
+  30% {
+    opacity: 0.5;
+    transform: scale(0.2);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.2, 1.2);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes loginRotate {
+  0% {
+    opacity: 1;
+    transform: rotate(0);
+    animation-duration: 1s;
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(720deg);
+  }
+}
+@keyframes loginScaleSmall {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(2);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+@keyframes loginLightenBg {
+  0% {
+    background: black;
+  }
+  100% {
+    background: white;
+  }
+}
+@keyframes loginScaleBg {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(3) rotate(720deg);
+  }
+}
+@keyframes accountOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes masterFly {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 10px;
+  }
+  10% {
+    bottom: 0;
+  }
+}
+@keyframes birdFlyL {
+  0% {
+    left: 0;
+  }
+  25% {
+    left: 10px;
+  }
+  50% {
+    left: 0;
+  }
+  75% {
+    left: -10px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes birdFlyR {
+  0% {
+    right: 0;
+  }
+  25% {
+    right: 10px;
+  }
+  50% {
+    right: 0;
+  }
+  75% {
+    right: -10px;
+  }
+  100% {
+    right: 0;
+  }
+}
+@keyframes elfFlyL {
+  0% {
+    left: 0;
+    bottom: 0;
+  }
+  25% {
+    left: -10px;
+    bottom: 10px;
+  }
+  50% {
+    left: -5px;
+    bottom: 15px;
+  }
+  75% {
+    left: -10px;
+    bottom: 10px;
+  }
+  100% {
+    left: 0;
+    bottom: 0;
+  }
+}
+@keyframes elfFlyR {
+  0% {
+    right: 0;
+    bottom: 0;
+  }
+  25% {
+    right: -10px;
+    bottom: 10px;
+  }
+  50% {
+    right: -5px;
+    bottom: 15px;
+  }
+  75% {
+    right: -10px;
+    bottom: 10px;
+  }
+  100% {
+    right: 0;
+    bottom: 0;
+  }
+}
+@keyframes dropdown {
+  0% {
+    opacity: 0;
+    top: -30em;
+  }
+  40% {
+    opacity: 1;
+    top: -10em;
+  }
+  70% {
+    opacity: 1;
+    top: 10em;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+@keyframes scaleWingsL {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    transform: scale(0.8) rotate(0deg);
+    left: 15%;
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.4) rotate(8deg);
+    left: 10%;
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    left: 7%;
+  }
+}
+@keyframes scaleWingsR {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+    right: 8%;
+  }
+  5% {
+    transform: scale(0.8) rotate(0deg);
+    right: 8%;
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.4) rotate(-8deg);
+    right: 7%;
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    right: 7.3%;
+  }
+}
+@keyframes appearWingsBG {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes appearFooter {
+  0% {
+    opacity: 0;
+    bottom: -20em;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes wingsMoveDown {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: 0.5%;
+  }
+  50% {
+    top: 0;
+  }
+  75% {
+    top: -0.5%;
+  }
+  100% {
+    top: 0px;
+  }
+}
+@keyframes wingsMoveUp {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: -0.5%;
+  }
+  50% {
+    top: 0;
+  }
+  75% {
+    top: 0.5%;
+  }
+  100% {
+    top: 0px;
+  }
+}
