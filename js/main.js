@@ -667,7 +667,7 @@ $(window).load(function(){
 	$('.reward').delay(7000).fadeIn();
 	
 	$('body:not(body.login)').css({
-		'background': 'url(../img/bg-22.jpg) center center no-repeat fixed',
+		'background': 'url(./img/bg-22.jpg) center center no-repeat fixed',
 		'background-size': 'cover'
 	});
 });
