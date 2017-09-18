@@ -582,7 +582,7 @@ $(function (){
 		$('.mask').remove();
 		$.ajax({
 			url: SERVER_URL + 'choose',
-			data: {'type': rotateType, 'mail': userMail},
+			data: {'type': rotateType, 'mail': userMail, 'usercookie': getCookie('userID')},
 			type: 'post',
 			success: function(data){
 				switch(data.rotateType){
