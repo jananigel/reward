@@ -561,7 +561,8 @@ $(function (){
 					$('.account').css('opacity', '1');
 					$('.login').addClass('bgWhite');
 					$('.account').addClass('opacity-0');
-					$('.login > .bg').addClass('bgScale');
+          $('.login > .bg').addClass('bgScale');
+          setCookie('userID', data.cookie, COOKIE_LIVE_DAY);
 				}
 			});
 			return false;
