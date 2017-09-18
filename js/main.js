@@ -513,7 +513,7 @@ $(function (){
 		if($('.userdata > .chance').text().charAt(5) != '0') rotateFake(680);
 		$.ajax({
 			url: SERVER_URL + 'getReward',
-			data: {'username': 'admin'},
+			data: {'username': $('.reward > .username').text(), 'usercookie': getCookie('userID')},
 			type: 'post',
 			success: function(data){
 				switch(data.type){
@@ -537,7 +537,10 @@ $(function (){
 						startRotate(data);
 						setTimeout(function(){showMask(GIFT, '');}, 6800);
 						rotateType = GIFT;
-						break;
+            break;
+          case REFRESH_PAGE_TO_INDEX:
+            $('head').append('<meta http-equiv = "refresh" content = "0; url = index.html">');
+            break;
 					default:
 						alert('Sorry, you do not have the chance to get the lottery. :(');
 						break;
