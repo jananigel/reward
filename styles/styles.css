@@ -148,7 +148,7 @@ body::-webkit-scrollbar-thumb {
 
 body {
   font-family: "Microsoft JhengHei", "Arial";
-  background: url(../img/bg-22.jpg) center center no-repeat fixed;
+  background: url(./img/bg-22.jpg) center center no-repeat fixed;
   background-size: cover;
 }
 
