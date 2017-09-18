@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * Bootstrap v3.2.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -465,14 +465,16 @@ if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c
       }
 
 })(jQuery);
-
+const NOT_FIRST_LOGIN = '101';
+const REFRESH_PAGE_TO_INDEX = '102';
 const ONE_CHANCE = '600';
 const NO_CHANCE = '601';
 const STOLE = '602';
 const GIVEN = '603';
 const ACTIVE_FAILD = '604';
 const GIFT = '605';
-const SERVER_URL = 'https://rotate-gifts.herokuapp.com/';
+const SERVER_URL = 'http://127.0.0.1:3001/';
+const COOKIE_LIVE_DAY = 600000;
 var rotateType = '';
 var m_isRotate = false;
 
@@ -550,8 +552,8 @@ $(function (){
 			return false;
 		}else{
 			$.ajax({
-				url: SERVER_URL,
-				data: {'username': $('.username').val()},
+				url: SERVER_URL + 'login',
+				data: {'username': $('.username').val(), 'usercookie': getCookie('userID')},
 				type: 'post',
 				success: function(data){
 					$('.account').removeClass('fadeInAni');
@@ -611,34 +613,42 @@ $(function (){
 $(window).load(function(){
 	$.ajax({
 		url: SERVER_URL,
-		data: '',
+		data: {'usercookie': getCookie('userID'), 'site': document.location.pathname},
 		type: 'post',
 		success: function(data){
-			if(String(document.location.pathname).indexOf('page') == -1) return;
-			switch(data.state){
-				case 'GIFT':
-					$('body').append('<div class = "mask result"><div class = "pic"><img src = "img/gift1-01.png"></img><img src = "img/gift2-01.png"></img><img src = "img/gift3-01.png"></img></div></div>');
+			switch(data.type){
+				case REFRESH_PAGE_TO_INDEX:
+					$('head').append('<meta http-equiv = "refresh" content = "0; url = index.html">');
+				break;
+				case NOT_FIRST_LOGIN:
+					if(String(document.location.pathname).indexOf('page') == -1) return;
+					switch(data.state){
+						case 'GIFT':
+							$('body').append('<div class = "mask result"><div class = "pic"><img src = "img/gift1-01.png"></img><img src = "img/gift2-01.png"></img><img src = "img/gift3-01.png"></img></div></div>');
+							
+							setTimeout(function(){
+								resizeH();
+								$('.mask.result').append('<p>你已經順利畢業了！</p>');
+							}, 500);
+							break;
+						case 'NO_CHANCE':
+							$('body').append('<div class = "mask result"><div class = "pic"><img src = "img/none.gif"></img></div></div>');
+							
+							setTimeout(function(){
+								resizeH();
+								$('.mask.result').append('<p>你已經沒有機會囉，等待好心人士的捐贈吧！</p>');
+							}, 500);
+							break;
+					};
 					
-					setTimeout(function(){
-						resizeH();
-						$('.mask.result').append('<p>你已經順利畢業了！</p>');
-					}, 500);
-					break;
-				case 'NO_CHANCE':
-					$('body').append('<div class = "mask result"><div class = "pic"><img src = "img/none.gif"></img></div></div>');
-					
-					setTimeout(function(){
-						resizeH();
-						$('.mask.result').append('<p>你已經沒有機會囉，等待好心人士的捐贈吧！</p>');
-					}, 500);
-					break;
-			};
+					$('.reward > .username').text(data.userName);
+					$('.reward > .userdata > .chance').text('剩餘機會：' + data.userChance);
+					$('.reward > .userdata > .isgoodGuy').text('好人指數：' + data.userGoodValue);
+					setCookie('userID', data.cookie, COOKIE_LIVE_DAY);
+					deleteCookie('tmp');
+				break;
+			}
 			
-			$('.reward > .username').text(data.userName);
-			$('.reward > .userdata > .chance').text('剩餘機會：' + data.userChance);
-			$('.reward > .userdata > .isgoodGuy').text('好人指數：' + data.userGoodValue);
-			setCookie('userID', data.cookie, 60000);
-			deleteCookie('tmp');
 		}
 	});
 	$('img').css('display', 'block');
@@ -667,7 +677,7 @@ $(window).load(function(){
 	$('.reward').delay(7000).fadeIn();
 	
 	$('body:not(body.login)').css({
-		'background': 'url(./img/bg-22.jpg) center center no-repeat fixed',
+		'background': 'url(../img/bg-22.jpg) center center no-repeat fixed',
 		'background-size': 'cover'
 	});
 });
