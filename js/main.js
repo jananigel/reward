@@ -508,7 +508,7 @@ $(function (){
 	$('body:not(body.login)').css('background', 'none');
 
 	
-	$('.wheel > .button').click(function (){
+	$('.wheel').click(function (){//$('.wheel > .button')
     alert('mobile test');
 		if(m_isRotate) return;
 		if($('.userdata > .chance').text().charAt(5) != '0') rotateFake(680);
