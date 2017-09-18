@@ -509,7 +509,6 @@ $(function (){
 
 	
 	$('.wheel').click(function (){//$('.wheel > .button')
-    alert('mobile test');
 		if(m_isRotate) return;
 		if($('.userdata > .chance').text().charAt(5) != '0') rotateFake(680);
 		$.ajax({
