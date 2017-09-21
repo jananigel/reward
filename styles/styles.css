@@ -332,7 +332,7 @@ h4, h6 {
 }
 .mask > .button {
   position: relative;
-  bottom: -65%;
+  bottom: -55%;
 }
 .mask > .button > button {
   border: 0;
